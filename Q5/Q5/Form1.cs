@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Q4
+namespace Q5
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -24,17 +29,19 @@ namespace Q4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double cel = 0.0;
-            double fah = Convert.ToDouble(textBox1.Text);
+            int value = int.Parse(textBox1.Text);
 
-            cel = (fah - 32) * (5.0 / 9.0);
-
-            textBox2.Text = cel.ToString();
+            textBox2.Text = factorial(value).ToString();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        int factorial (int val)
         {
-            Close();
+            int fact = 1;
+            for(int i=val; i>0; i--)
+            {
+                fact *= i;
+            }
+            return fact;
         }
     }
 }
